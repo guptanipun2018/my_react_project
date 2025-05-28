@@ -25,7 +25,7 @@ app.use(cors({
 //     console.log('Connected to MySQL database');
 // });
 
-mongoose.connect('mongodb+srv://janvi:Shamlal123@cluster48608.zbpg1v7.mongodb.net/testDB?retryWrites=true&w=majority&appName=Cluster48608', {
+mongoose.connect('mongodb+srv://username:password@cluster48608.zbpg1v7.mongodb.net/testDB?retryWrites=true&w=majority&appName=Cluster48608', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
