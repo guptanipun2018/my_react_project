@@ -3,14 +3,17 @@ import axios from 'axios';
 
 import './App.css'
 function App() {
+ const [users,setUsers] = useState([]);
 
-  const [users,setUser] = useState([]);
-  useEffect(()=>{
-    axios.get()
-    .then(res => setUser(res.data))
-    .catch(err => console.log(err));
-  },[]);
+  const updateTableData = () => {
+    fetch('http://localhost:5001/api/users/') 
+      .then(res => res.json())
+      .then(data => setUsers(data))
+      .catch(err => console.error('Error:', err));
+  }
   return(
+    <>
+    <button onClick={updateTableData}>Click Me</button>
     <div className="table">
       <table>
         <thead>
@@ -27,7 +30,7 @@ function App() {
             <tr>
             <td> {user.name} </td>
             <td> {user.college} </td>
-            <td> {user.college} </td>
+            <td> {user.email} </td>
             <td> {user.year} </td>
             <td> {user.location} </td>
           </tr>
@@ -36,6 +39,7 @@ function App() {
         
       </table>
     </div>
+    </>
   )
 }
 
